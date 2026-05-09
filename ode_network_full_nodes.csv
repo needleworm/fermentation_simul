@@ -1,0 +1,33 @@
+node_id,label,group,kind
+starch_g_L,Starch,substrate,state
+dextrin_g_L,Dextrin,substrate,state
+protein_g_L,Protein,substrate,state
+maltose_g_L,Maltose,substrate,state
+maltotriose_g_L,Maltotriose,substrate,state
+glucose_g_L,Glucose,substrate,state
+fructose_g_L,Fructose,substrate,state
+fermentable_sugar_pool,Fermentable sugar pool,substrate,factor
+temperature_C,Temperature,environment,factor
+pH,pH,environment,factor
+nitrogen_g_L,Assimilable N,environment,state
+oxygen_mg_L,Dissolved O₂,environment,state
+environment_oxygen,External O₂,environment,source
+enzyme_activity_factor,Enzyme activity,enzyme,factor
+biomass_g_L,Yeast biomass,yeast,state
+activity,Yeast activity,yeast,factor
+stress,Stress index,yeast,factor
+aerobic_fraction,Aerobic fraction,yeast,factor
+fermentative_fraction,Fermentative fraction,yeast,factor
+sugar_uptake_flux,Sugar uptake flux,yeast,flux
+growth_flux,Growth flux,yeast,flux
+death_flux,Death flux,yeast,flux
+oxygen_transfer_flux,O₂ transfer flux,other,flux
+ethanol_g_L,Ethanol,products,state
+co2_g_L,CO₂,products,state
+retained_co2_g_L,Retained CO₂,products,state
+glycerol_g_L,Glycerol,products,state
+acetate_g_L,Acetate,products,state
+acid_mM,Organic acid,products,state
+gas_retention_flux,Gas retention,products,flux
+ethanol_evaporation_sink,Ethanol loss,products,sink
+co2_escape_sink,CO₂ escape,products,sink

@@ -1,0 +1,32 @@
+source,target,label,relation,sign,module
+starch_g_L,dextrin_g_L,hydrolysis,conversion,+,enzyme
+dextrin_g_L,maltose_g_L,saccharification,conversion,+,enzyme
+maltose_g_L,glucose_g_L,glucoamylase,conversion,+,enzyme
+protein_g_L,nitrogen_g_L,proteolysis,conversion,+,enzyme
+temperature_C,enzyme_activity_factor,enzyme temp,modulates,mod,enzyme
+pH,enzyme_activity_factor,enzyme pH,modulates,mod,enzyme
+enzyme_activity_factor,dextrin_g_L,enzyme-mediated release,modulates,mod,enzyme
+maltose_g_L,fermentable_sugar_pool,pool,aggregate,+,yeast
+maltotriose_g_L,fermentable_sugar_pool,pool,aggregate,+,yeast
+glucose_g_L,fermentable_sugar_pool,pool,aggregate,+,yeast
+fructose_g_L,fermentable_sugar_pool,pool,aggregate,+,yeast
+fermentable_sugar_pool,sugar_uptake_flux,substrate,drives,+,yeast
+biomass_g_L,sugar_uptake_flux,biomass,drives,+,yeast
+nitrogen_g_L,activity,N limitation,modulates,+,yeast
+oxygen_mg_L,aerobic_fraction,O₂ availability,modulates,+,yeast
+oxygen_mg_L,fermentative_fraction,low O₂,modulates,-,yeast
+temperature_C,activity,temp,modulates,mod,yeast
+pH,activity,pH,modulates,mod,yeast
+ethanol_g_L,activity,ethanol inhibition,inhibits,-,yeast
+activity,sugar_uptake_flux,q_s,drives,+,yeast
+sugar_uptake_flux,biomass_g_L,growth,produces,+,yeast
+sugar_uptake_flux,ethanol_g_L,ethanol,produces,+,products
+sugar_uptake_flux,co2_g_L,CO₂,produces,+,products
+co2_g_L,retained_co2_g_L,retention,produces,+,products
+sugar_uptake_flux,glycerol_g_L,glycerol,produces,+,products
+sugar_uptake_flux,acetate_g_L,acetate,produces,+,products
+sugar_uptake_flux,acid_mM,acid,produces,+,products
+acetate_g_L,acid_mM,acidity,increases,+,products
+acid_mM,pH,acidification,decreases,-,environment
+ethanol_g_L,stress,product stress,increases,+,yeast
+stress,biomass_g_L,death,decreases,-,yeast

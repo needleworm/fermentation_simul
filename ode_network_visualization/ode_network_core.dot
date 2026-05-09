@@ -1,0 +1,91 @@
+digraph ODE_Network {
+  graph [rankdir=LR, splines=true, overlap=false, compound=true, fontsize=18, fontname=Helvetica, labelloc=t, label="Core ODE-Network Structure of the Fermentation Simulator"];
+  node [fontname=Helvetica, fontsize=11, margin=0.08];
+  edge [fontname=Helvetica, fontsize=8, arrowsize=0.7];
+  subgraph cluster_substrate {
+    label="Substrate pools";
+    style="rounded";
+    color="gray70";
+    penwidth=1.0;
+    "starch_g_L" [label="Starch", shape=ellipse, style="rounded,filled", fillcolor="white", penwidth=1.4];
+    "dextrin_g_L" [label="Dextrin", shape=ellipse, style="rounded,filled", fillcolor="white", penwidth=1.4];
+    "protein_g_L" [label="Protein", shape=ellipse, style="rounded,filled", fillcolor="white", penwidth=1.4];
+    "maltose_g_L" [label="Maltose", shape=ellipse, style="rounded,filled", fillcolor="white", penwidth=1.4];
+    "maltotriose_g_L" [label="Maltotriose", shape=ellipse, style="rounded,filled", fillcolor="white", penwidth=1.4];
+    "glucose_g_L" [label="Glucose", shape=ellipse, style="rounded,filled", fillcolor="white", penwidth=1.4];
+    "fructose_g_L" [label="Fructose", shape=ellipse, style="rounded,filled", fillcolor="white", penwidth=1.4];
+    "fermentable_sugar_pool" [label="Fermentable sugar pool", shape=box, style="rounded,filled", fillcolor="gray96", penwidth=1.1];
+  }
+  subgraph cluster_enzyme {
+    label="Enzymatic module";
+    style="rounded";
+    color="gray70";
+    penwidth=1.0;
+    "enzyme_activity_factor" [label="Enzyme activity", shape=box, style="rounded,filled", fillcolor="gray96", penwidth=1.1];
+  }
+  subgraph cluster_environment {
+    label="Environment";
+    style="rounded";
+    color="gray70";
+    penwidth=1.0;
+    "temperature_C" [label="Temperature", shape=box, style="rounded,filled", fillcolor="gray96", penwidth=1.1];
+    "pH" [label="pH", shape=box, style="rounded,filled", fillcolor="gray96", penwidth=1.1];
+    "nitrogen_g_L" [label="Assimilable N", shape=ellipse, style="rounded,filled", fillcolor="white", penwidth=1.4];
+    "oxygen_mg_L" [label="Dissolved O₂", shape=ellipse, style="rounded,filled", fillcolor="white", penwidth=1.4];
+  }
+  subgraph cluster_yeast {
+    label="Yeast physiology / fluxes";
+    style="rounded";
+    color="gray70";
+    penwidth=1.0;
+    "biomass_g_L" [label="Yeast biomass", shape=ellipse, style="rounded,filled", fillcolor="white", penwidth=1.4];
+    "activity" [label="Yeast activity", shape=box, style="rounded,filled", fillcolor="gray96", penwidth=1.1];
+    "stress" [label="Stress index", shape=box, style="rounded,filled", fillcolor="gray96", penwidth=1.1];
+    "aerobic_fraction" [label="Aerobic fraction", shape=box, style="rounded,filled", fillcolor="gray96", penwidth=1.1];
+    "fermentative_fraction" [label="Fermentative fraction", shape=box, style="rounded,filled", fillcolor="gray96", penwidth=1.1];
+    "sugar_uptake_flux" [label="Sugar uptake flux", shape=diamond, style="filled", fillcolor="gray92", penwidth=1.2];
+  }
+  subgraph cluster_products {
+    label="Products and feedback";
+    style="rounded";
+    color="gray70";
+    penwidth=1.0;
+    "ethanol_g_L" [label="Ethanol", shape=ellipse, style="rounded,filled", fillcolor="white", penwidth=1.4];
+    "co2_g_L" [label="CO₂", shape=ellipse, style="rounded,filled", fillcolor="white", penwidth=1.4];
+    "retained_co2_g_L" [label="Retained CO₂", shape=ellipse, style="rounded,filled", fillcolor="white", penwidth=1.4];
+    "glycerol_g_L" [label="Glycerol", shape=ellipse, style="rounded,filled", fillcolor="white", penwidth=1.4];
+    "acetate_g_L" [label="Acetate", shape=ellipse, style="rounded,filled", fillcolor="white", penwidth=1.4];
+    "acid_mM" [label="Organic acid", shape=ellipse, style="rounded,filled", fillcolor="white", penwidth=1.4];
+  }
+  "starch_g_L" -> "dextrin_g_L" [style="solid", arrowhead="normal", penwidth=1.1, label="hydrolysis"];
+  "dextrin_g_L" -> "maltose_g_L" [style="solid", arrowhead="normal", penwidth=1.1, label="saccharification"];
+  "maltose_g_L" -> "glucose_g_L" [style="solid", arrowhead="normal", penwidth=1.1, label="glucoamylase"];
+  "protein_g_L" -> "nitrogen_g_L" [style="solid", arrowhead="normal", penwidth=1.1, label="proteolysis"];
+  "temperature_C" -> "enzyme_activity_factor" [style="dotted", arrowhead="normal", penwidth=1.1, label="enzyme temp"];
+  "pH" -> "enzyme_activity_factor" [style="dotted", arrowhead="normal", penwidth=1.1, label="enzyme pH"];
+  "enzyme_activity_factor" -> "dextrin_g_L" [style="dotted", arrowhead="normal", penwidth=1.1, label="enzyme-mediated release"];
+  "maltose_g_L" -> "fermentable_sugar_pool" [style="solid", arrowhead="normal", style="dotted", penwidth=1.1, label="pool"];
+  "maltotriose_g_L" -> "fermentable_sugar_pool" [style="solid", arrowhead="normal", style="dotted", penwidth=1.1, label="pool"];
+  "glucose_g_L" -> "fermentable_sugar_pool" [style="solid", arrowhead="normal", style="dotted", penwidth=1.1, label="pool"];
+  "fructose_g_L" -> "fermentable_sugar_pool" [style="solid", arrowhead="normal", style="dotted", penwidth=1.1, label="pool"];
+  "fermentable_sugar_pool" -> "sugar_uptake_flux" [style="solid", arrowhead="normal", penwidth=1.1, label="substrate"];
+  "biomass_g_L" -> "sugar_uptake_flux" [style="solid", arrowhead="normal", penwidth=1.1, label="biomass"];
+  "nitrogen_g_L" -> "activity" [style="solid", arrowhead="normal", penwidth=1.1, label="N limitation"];
+  "oxygen_mg_L" -> "aerobic_fraction" [style="solid", arrowhead="normal", penwidth=1.1, label="O₂ availability"];
+  "oxygen_mg_L" -> "fermentative_fraction" [style="dashed", arrowhead="tee", penwidth=1.1, label="low O₂"];
+  "temperature_C" -> "activity" [style="dotted", arrowhead="normal", penwidth=1.1, label="temp"];
+  "pH" -> "activity" [style="dotted", arrowhead="normal", penwidth=1.1, label="pH"];
+  "ethanol_g_L" -> "activity" [style="dashed", arrowhead="tee", penwidth=1.1, label="ethanol inhibition"];
+  "activity" -> "sugar_uptake_flux" [style="solid", arrowhead="normal", penwidth=1.1, label="q_s"];
+  "sugar_uptake_flux" -> "biomass_g_L" [style="solid", arrowhead="normal", penwidth=1.1, label="growth"];
+  "sugar_uptake_flux" -> "ethanol_g_L" [style="solid", arrowhead="normal", penwidth=1.1, label="ethanol"];
+  "sugar_uptake_flux" -> "co2_g_L" [style="solid", arrowhead="normal", penwidth=1.1, label="CO₂"];
+  "co2_g_L" -> "retained_co2_g_L" [style="solid", arrowhead="normal", penwidth=1.1, label="retention"];
+  "sugar_uptake_flux" -> "glycerol_g_L" [style="solid", arrowhead="normal", penwidth=1.1, label="glycerol"];
+  "sugar_uptake_flux" -> "acetate_g_L" [style="solid", arrowhead="normal", penwidth=1.1, label="acetate"];
+  "sugar_uptake_flux" -> "acid_mM" [style="solid", arrowhead="normal", penwidth=1.1, label="acid"];
+  "acetate_g_L" -> "acid_mM" [style="solid", arrowhead="normal", penwidth=1.1, label="acidity"];
+  "acid_mM" -> "pH" [style="dashed", arrowhead="tee", penwidth=1.1, label="acidification"];
+  "ethanol_g_L" -> "stress" [style="solid", arrowhead="normal", penwidth=1.1, label="product stress"];
+  "stress" -> "biomass_g_L" [style="dashed", arrowhead="tee", penwidth=1.1, label="death"];
+}

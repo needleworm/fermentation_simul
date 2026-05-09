@@ -1,0 +1,61 @@
+source,target,label,relation,sign,module
+temperature_C,enzyme_activity_factor,enzyme temp factor,modulates,mod,enzyme
+pH,enzyme_activity_factor,enzyme pH factor,modulates,mod,enzyme
+enzyme_activity_factor,starch_g_L,starch hydrolysis,consumes,-,enzyme
+enzyme_activity_factor,dextrin_g_L,dextrin hydrolysis,modulates,mod,enzyme
+enzyme_activity_factor,protein_g_L,proteolysis,consumes,-,enzyme
+starch_g_L,dextrin_g_L,starch→dextrin,conversion,+,enzyme
+dextrin_g_L,maltose_g_L,dextrin→maltose,conversion,+,enzyme
+maltose_g_L,glucose_g_L,maltose→glucose,conversion,+,enzyme
+maltotriose_g_L,glucose_g_L,maltotriose→glucose,conversion,+,enzyme
+protein_g_L,nitrogen_g_L,protein→N,conversion,+,enzyme
+maltose_g_L,fermentable_sugar_pool,pool,aggregate,+,yeast
+maltose_g_L,sugar_uptake_flux,uptake share,consumed_by,-,yeast
+maltotriose_g_L,fermentable_sugar_pool,pool,aggregate,+,yeast
+maltotriose_g_L,sugar_uptake_flux,uptake share,consumed_by,-,yeast
+glucose_g_L,fermentable_sugar_pool,pool,aggregate,+,yeast
+glucose_g_L,sugar_uptake_flux,uptake share,consumed_by,-,yeast
+fructose_g_L,fermentable_sugar_pool,pool,aggregate,+,yeast
+fructose_g_L,sugar_uptake_flux,uptake share,consumed_by,-,yeast
+glucose_g_L,maltose_g_L,glucose repression,inhibits uptake,-,yeast
+glucose_g_L,maltotriose_g_L,glucose repression,inhibits uptake,-,yeast
+fermentable_sugar_pool,activity,sugar limitation,modulates,+,yeast
+nitrogen_g_L,activity,N limitation,modulates,+,yeast
+ethanol_g_L,activity,ethanol inhibition,inhibits,-,yeast
+temperature_C,activity,temp factor,modulates,mod,yeast
+pH,activity,pH factor,modulates,mod,yeast
+oxygen_mg_L,aerobic_fraction,O₂ availability,modulates,+,yeast
+oxygen_mg_L,fermentative_fraction,low-O₂ fermentation,modulates,-,yeast
+fermentable_sugar_pool,fermentative_fraction,Crabtree effect,modulates,+,yeast
+temperature_C,stress,thermal stress,modulates,mod,yeast
+pH,stress,pH stress,modulates,mod,yeast
+ethanol_g_L,stress,ethanol stress,increases,+,yeast
+fermentable_sugar_pool,stress,osmotic stress,increases,+,yeast
+biomass_g_L,sugar_uptake_flux,biomass term,drives,+,yeast
+activity,sugar_uptake_flux,q_s activity,drives,+,yeast
+sugar_uptake_flux,growth_flux,Yx/s,drives,+,yeast
+aerobic_fraction,growth_flux,aerobic yield,modulates,+,yeast
+growth_flux,biomass_g_L,growth,produces,+,yeast
+stress,death_flux,stress death,drives,+,yeast
+biomass_g_L,death_flux,death term,drives,+,yeast
+death_flux,biomass_g_L,death,decreases,-,yeast
+growth_flux,nitrogen_g_L,N assimilation,consumes,-,yeast
+sugar_uptake_flux,oxygen_mg_L,aerobic O₂ use,consumes,-,yeast
+aerobic_fraction,oxygen_mg_L,aerobic O₂ demand,consumes,-,yeast
+sugar_uptake_flux,ethanol_g_L,ethanol yield,produces,+,products
+fermentative_fraction,ethanol_g_L,fermentative yield,modulates,+,products
+sugar_uptake_flux,co2_g_L,CO₂ yield,produces,+,products
+fermentative_fraction,co2_g_L,fermentative CO₂,modulates,+,products
+sugar_uptake_flux,glycerol_g_L,glycerol yield,produces,+,products
+stress,glycerol_g_L,stress glycerol,modulates,+,products
+sugar_uptake_flux,acetate_g_L,acetate yield,produces,+,products
+aerobic_fraction,acetate_g_L,aerobic acetate,modulates,+,products
+sugar_uptake_flux,acid_mM,acidification,produces,+,products
+acetate_g_L,acid_mM,acetate acidity,increases,+,products
+environment_oxygen,oxygen_transfer_flux,kLa transfer,drives,+,environment
+oxygen_transfer_flux,oxygen_mg_L,O₂ transfer,produces,+,environment
+acid_mM,pH,buffered acidification,decreases,-,environment
+co2_g_L,gas_retention_flux,retention fraction,drives,+,products
+gas_retention_flux,retained_co2_g_L,retained CO₂,produces,+,products
+retained_co2_g_L,co2_escape_sink,CO₂ escape,loss,-,products
+ethanol_g_L,ethanol_evaporation_sink,evaporation,loss,-,products
