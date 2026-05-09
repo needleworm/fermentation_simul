@@ -169,8 +169,8 @@ rather than a fully calibrated industrial production model.
 If you use this repository in your research, please cite:
 
 ```text
-Byunghyun Ban,
-"An ODE-Network-Based Chemical Complex System Simulator for Multi-Environment Fermentation"
+Byunghyun Ban, 2026, 
+"An ODE-Network-Based Chemical Complex System Simulator for Multi-Environment Fermentation", Researchgate Preprint.
 
 DOI:
 https://doi.org/10.13140/RG.2.2.31603.28968
