@@ -1,0 +1,14 @@
+environment_type,dominant_failure_mode,count,fraction
+beer_wort,completed,18,0.5
+beer_wort,nitrogen_limited,12,0.3333333333333333
+beer_wort,balanced_or_slow,6,0.16666666666666666
+bread_dough,proof_residual_sugar_expected,16,0.5925925925925926
+bread_dough,proof_sugar_depleted,11,0.4074074074074074
+malt_mash_wort,mash_starch_conversion_limited,12,0.6666666666666666
+malt_mash_wort,nitrogen_limited,5,0.2777777777777778
+malt_mash_wort,balanced_or_slow,1,0.05555555555555555
+rice_wine,saccharification_limited,14,0.5185185185185185
+rice_wine,completed,5,0.18518518518518517
+rice_wine,nitrogen_limited,4,0.14814814814814814
+rice_wine,balanced_or_slow,2,0.07407407407407407
+rice_wine,ethanol_inhibited,2,0.07407407407407407
