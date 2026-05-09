@@ -1,0 +1,36 @@
+file,column,description
+experiment_conditions.csv,__file__,All condition parameters used to generate the benchmark sweep.
+timeseries.csv,__file__,One row per recorded time point per condition.
+summary.csv,__file__,One row per condition with final values and paper-ready metrics.
+environment_rankings.csv,__file__,Conditions ranked within each environment by environment-specific objective score.
+manifest.csv,__file__,Run metadata and file list.
+multiple,condition_id,Unique identifier for one simulated experimental condition.
+multiple,environment_type,"One of bread_dough, rice_wine, beer_wort, malt_mash_wort."
+multiple,strain,Yeast physiology preset used by the condition.
+multiple,time_h,Simulation time in hours.
+multiple,phase,"pre_saccharification, pre_inoculation, or fermentation."
+multiple,pH,Buffered pH proxy computed from acid_mM and buffer capacity.
+multiple,activity,"Composite yeast activity factor from substrate, N, ethanol, pH, and temperature."
+multiple,stress,"Composite stress index from temperature, pH, ethanol, and osmotic stress."
+multiple,enzyme_activity_factor,Composite enzyme activity factor from temperature and pH.
+multiple,fermentable_sugar_g_L,maltose + maltotriose + glucose + fructose.
+multiple,total_carbohydrate_g_L,starch + dextrin + fermentable sugars.
+multiple,retained_co2_g_L,"Bread-useful CO2 retention proxy, not a literal gas volume."
+multiple,environment_objective_score,Environment-specific scalar score for ranking conditions.
+multiple,dominant_failure_mode,"Rule-based label such as completed, saccharification_limited, nitrogen_limited, yeast_stress."
+timeseries.csv,starch_g_L,"State variable in g/L, mg/L for oxygen, or mM for acid_mM."
+timeseries.csv,dextrin_g_L,"State variable in g/L, mg/L for oxygen, or mM for acid_mM."
+timeseries.csv,protein_g_L,"State variable in g/L, mg/L for oxygen, or mM for acid_mM."
+timeseries.csv,maltose_g_L,"State variable in g/L, mg/L for oxygen, or mM for acid_mM."
+timeseries.csv,maltotriose_g_L,"State variable in g/L, mg/L for oxygen, or mM for acid_mM."
+timeseries.csv,glucose_g_L,"State variable in g/L, mg/L for oxygen, or mM for acid_mM."
+timeseries.csv,fructose_g_L,"State variable in g/L, mg/L for oxygen, or mM for acid_mM."
+timeseries.csv,nitrogen_g_L,"State variable in g/L, mg/L for oxygen, or mM for acid_mM."
+timeseries.csv,oxygen_mg_L,"State variable in g/L, mg/L for oxygen, or mM for acid_mM."
+timeseries.csv,biomass_g_L,"State variable in g/L, mg/L for oxygen, or mM for acid_mM."
+timeseries.csv,ethanol_g_L,"State variable in g/L, mg/L for oxygen, or mM for acid_mM."
+timeseries.csv,co2_g_L,"State variable in g/L, mg/L for oxygen, or mM for acid_mM."
+timeseries.csv,retained_co2_g_L,"State variable in g/L, mg/L for oxygen, or mM for acid_mM."
+timeseries.csv,glycerol_g_L,"State variable in g/L, mg/L for oxygen, or mM for acid_mM."
+timeseries.csv,acetate_g_L,"State variable in g/L, mg/L for oxygen, or mM for acid_mM."
+timeseries.csv,acid_mM,"State variable in g/L, mg/L for oxygen, or mM for acid_mM."

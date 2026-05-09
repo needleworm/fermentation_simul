@@ -1,0 +1,12 @@
+key,value
+outdir,fermentation_benchmark_results
+n_conditions,108
+n_timeseries_rows,12204
+n_summary_rows,108
+script,fermentation_benchmark_full.py
+model_note,Toy ODE-network benchmark; not calibrated for production fermentation.
+file,experiment_conditions.csv
+file,timeseries.csv
+file,summary.csv
+file,environment_rankings.csv
+file,column_dictionary.csv
